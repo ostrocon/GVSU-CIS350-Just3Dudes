@@ -17,11 +17,11 @@ Discussion points:
 *What is our term project idea? We are going to create a DOOM-like game. It will be a first person pixel shooter with one level. 
 *What technologies are we using to build it? we are going to be using pygame, VS Code or PyCharm, and possible other libraries
 *What resources do we need to learn how to build it? We are going to look at tutorial of similar games as well as YouTube and Github.
-*What is out first task/milestone? we are going to complete the setup of a Github repo and add all of our memeber
+*What is out first task/milestone? we are going to complete the setup of a Github repo and add all of our memebers 
 
 Goals for next week (include responsibilities)
 
-*What will each person do to get up and runnung? wathc videos and code to get familiar and come up with ideas for what it will look like
+*What will each person do to get up and runnung? watch videos and code to get familiar and come up with ideas for what it will look like
 *Who will transcribe this document into out Github repo as out first meeting so that we only have 7 instead of 8 to do now? Connor Ostrowski
 *
 
