@@ -1,4 +1,4 @@
-Team name:
+Team name: 
 
 Team members:
 

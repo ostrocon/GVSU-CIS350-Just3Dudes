@@ -5,7 +5,7 @@ DOOM First Person Shooter..............
 
 ## Team Members and Roles
 
-* Connor Ostrowski (Team Lead)
+* [Connor Ostrowski] (https://github.com/ostrocon/CIS350-HW2-OSTROWSKI) (Team Lead)
 * [Logan Rosser](https://github.com/rosserlog/CIS350-HW2-Rosser) (Team Memeber)
 * Kaleb Maulding (Team Member)
 
