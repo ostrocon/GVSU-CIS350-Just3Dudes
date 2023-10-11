@@ -4,15 +4,24 @@
 
 # Functional Requirements
 
-1. <Name of Feature 1>
-    1. <Functional Requirement 1>
+1. <Player Movement>
+    1. <The player shall move forward when the user presses w.>
     2. <Functional Requirement 2>
     3. <And so on>
 
+2. <Guns>
+    1. <The player shall shoot their gun when the user presses left click>
+
+3. <Enemy>
+    1. <The enemy shall always walk towards the player>
+
 # Non-Functional Requirements
 
-2. <Name of Feature 1>
-    1. <Non-Functional Requirement 1>
-    2. <Non-Functional Requirement 2>
+1. <Performence>
+    1. <The game resoultion shall be 1600x900.>
+    2. <The game shall run at 60FPS.>
     3. <And so on>
+
+2. <Enviornment>
+    1. <The game shall appear as a 3D enviornment.>
 
