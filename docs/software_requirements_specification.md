@@ -16,7 +16,7 @@ This document contains lists of requirements which are specifications of what we
 
 3. Interface
     1. The game shall have a scoreboard to track progress
-    2. The game shall hav ea starting menu
+    2. The game shall have a starting menu
 
 # Non-Functional Requirements
 
