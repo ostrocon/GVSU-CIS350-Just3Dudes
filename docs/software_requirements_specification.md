@@ -18,15 +18,31 @@ This document contains lists of requirements which are specifications of what we
     1. The game shall have a scoreboard to track progress
     2. The game shall have a starting menu
 
+4. In-game orientation
+    1. The player's in-game orientation shall be synchronized with the position of the on-screen cursor controlled by the mouse.
+
+5. Colliding
+    1. The player shall not be able to walk through a live enemy.
+
+6. Player Health
+    1. The player shall regain health when walking over a health pack.
+
 # Non-Functional Requirements
 
-2. Performence
+1. Performance
     1. The game resoultion shall be 1600x900.
     2. The game shall run at 60FPS.
     3. The user controls shall be intuitive and easy to learn
 
-3. Enviornment
+2. Enviornment
     1. The game shall appear as a 3D enviornment
     2. TAKE OUT **weapons can be pack-a-punched for more damage **
+  
+3. Health pack
+    1. Walking over a health pack shall return 25-100% of the players current health back to them.
 
+4. Enemy Collision
+    1. Colliding with a live enemy shall cause the player to lose 25% of their current health.
 
+5. Bullet Collision
+    1. When the player shoots their gun and a bullet collides with a live enemy the enemy shall lose 50 health.
