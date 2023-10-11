@@ -7,12 +7,9 @@ This document contains lists of requirements which are specifications of what we
 1. Player Movement
     1. The player shall move forward when the user presses w.
     2. The Player shall melee the enemey when the user presses E.
-    2. <Functional Requirement 2>
-    3. <And so on>
 
 2. Enemy
-    1. The enemy shall walk towards the player
-    2. <and so on>
+    1. The enemy shall walk towards the player.
 
 3. Interface
     1. The game shall have a scoreboard to track progress
@@ -36,7 +33,6 @@ This document contains lists of requirements which are specifications of what we
 
 2. Enviornment
     1. The game shall appear as a 3D enviornment
-    2. TAKE OUT **weapons can be pack-a-punched for more damage **
   
 3. Health pack
     1. Walking over a health pack shall return 25-100% of the players current health back to them.
