@@ -8,20 +8,18 @@ This document contains lists of requirements which are specifications of what we
     1. The player shall move forward when the user presses w.
     2. The Player shall melee the enemey when the user presses E.
 
-2. Enemy
-    1. The enemy shall walk towards the player.
-
-3. Interface
+2. Interface
     1. The game shall have a scoreboard to track progress
     2. The game shall have a starting menu
+    3. When the user presses the escape button it shall pause the game
 
-4. In-game orientation
+3. In-game orientation
     1. The player's in-game orientation shall be synchronized with the position of the on-screen cursor controlled by the mouse.
 
-5. Colliding
+4. Colliding
     1. The player shall not be able to walk through a live enemy.
 
-6. Player Health
+5. Player Health
     1. The player shall regain health when walking over a health pack.
 
 # Non-Functional Requirements
