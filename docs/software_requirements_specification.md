@@ -11,7 +11,6 @@ This document contains lists of requirements which are specifications of what we
 2. Interface
     1. The game shall have a scoreboard to track progress
     2. The game shall have a starting menu
-    3. When the user presses the escape button it shall pause the game
 
 3. In-game orientation
     1. The player's in-game orientation shall be synchronized with the position of the on-screen cursor controlled by the mouse.
@@ -21,6 +20,7 @@ This document contains lists of requirements which are specifications of what we
 
 5. Player Health
     1. The player shall regain health when walking over a health pack.
+    2. When the player health hits zero the game shall restart.
 
 # Non-Functional Requirements
 
