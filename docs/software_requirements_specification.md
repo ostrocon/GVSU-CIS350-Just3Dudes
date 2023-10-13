@@ -26,7 +26,7 @@ This document contains lists of requirements which are specifications of what we
 
 1. Performance
     1. The game resoultion shall be 1600x900.
-    2. The game shall run at 60FPS.
+    2. The game shall run at between 50 and 60FPS.
     3. The user controls shall be intuitive and easy to learn
 
 2. Enviornment
