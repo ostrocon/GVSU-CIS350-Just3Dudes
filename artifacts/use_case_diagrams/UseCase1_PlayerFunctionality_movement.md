@@ -1,6 +1,6 @@
-#Player Functionality 
+# Player Functionality 
 
-##Use Case : Buy Item
+## Use Case : Buy Item
 
 Actors: Plater
 
@@ -10,4 +10,4 @@ Cross Ref: 1.1 (more will be added as requirements are created.)
 
 Use Cases: The use must have started the game. 
 
-###Actors
+### Actors
