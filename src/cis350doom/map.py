@@ -27,5 +27,9 @@ class Map:
                     self.world_map[(i, j)] = value
     
     def draw(self):
-        [pg.draw.rect(self.game.screen, 'darkgrey', (pos[0] * 100, pos[1] * 100, 100, 100), 2) for pos in self.world_map]
+        for y, row in enumerate(self.mini_map):
+            for x, wall_id in enumerate(row):
+                if wall_id:
+                    texture = self.game.object_renderer.wall_textures[wall_id]
+                    self.game.screen.blit(texture, (x * 100, y * 100))
         

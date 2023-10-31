@@ -22,9 +22,17 @@ class ObjectRenderer:
     
     def load_wall_textures(self):
         return {
+<<<<<<< Updated upstream
             1: self.get_texture('src/cis350doom/resources/textures/1.png'),
             2: self.get_texture('src/cis350doom/resources/textures/2.png'),
             3: self.get_texture('src/cis350doom/resources/textures/3.png'),
             4: self.get_texture('src/cis350doom/resources/textures/4.png'),
             5: self.get_texture('src/cis350doom/resources/textures/5.png'),
+=======
+            1: self.get_texture('resources/textures/1.png'),
+            2: self.get_texture('resources/textures/2.png'),
+            3: self.get_texture('resources/textures/3.png'),
+            4: self.get_texture('resources/textures/4.png'),
+            5: self.get_texture('resources/textures/5.png'),
+>>>>>>> Stashed changes
         }
