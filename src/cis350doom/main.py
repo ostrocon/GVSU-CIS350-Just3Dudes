@@ -36,13 +36,7 @@ class Game:
         self.object_renderer.draw()
         #self.map.draw()
         #self.player.draw()
-        
-<<<<<<< Updated upstream
-=======
-        self.map.draw()
-        self.player.draw()
 
->>>>>>> Stashed changes
     def check_events(self):
         for event in pg.event.get():
             if event.type == pg.QUIT or (event.type == pg.KEYDOWN and event.key == pg.K_ESCAPE):
