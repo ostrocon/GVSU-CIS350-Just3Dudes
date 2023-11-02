@@ -27,9 +27,9 @@ class SpriteObject:
 
         image = pg.transform.scale(self.image, (proj_width, proj_height))
 
-        self.sprite_half_width = proj // 2
+        self.sprite_half_width = proj_width // 2
         height_shift = proj_height * self.SPRITE_HEIGHT_SHIFT
-        pos = self.screen_x - self.sprite_half_width, HALF_WIDTH - proj_height // 2 + height_shift
+        pos = self.screen_x - self.sprite_half_width, HALF_HEIGHT - proj_height // 2 + height_shift
 
         self.game.raycasting.objects_to_render.append((self.norm_dist, image, pos))
         
@@ -42,7 +42,7 @@ class SpriteObject:
         self.theta = math.atan2(dy, dx)
 
         #determine how many rays the sprite is shifted compared to the central ray (offset of pov)
-        delta = self.theta = self.player.angle
+        delta = self.theta - self.player.angle
         if (dx > 0 and self.player.angle > math.pi) or (dx < 0 and dy < 0):
             delta += math.tau
 
@@ -52,7 +52,7 @@ class SpriteObject:
         #calculate the distance to the sprite and remove the fishbowl effect
         self.dist = math.hypot(dx, dy)
         self.norm_dist = self.dist * math.cos(delta)
-        if - self.IMAGE_HALF_WIDTH< self.screen_x < (WIDTH + self.IMAGE_HALF_WIDTH) and self.norm_dist > 0.5:
+        if - self.IMAGE_HALF_WIDTH < self.screen_x < (WIDTH + self.IMAGE_HALF_WIDTH) and self.norm_dist > 0.5:
             self.get_sprite_projection()
 
 
