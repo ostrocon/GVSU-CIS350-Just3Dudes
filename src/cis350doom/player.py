@@ -8,6 +8,36 @@ class Player:
         self.x, self.y = PLAYER_POS
         self.angle = PLAYER_ANGLE
         self.shot = False
+        self.rel = 0
+        
+        #Comment out from here to line 27 to stop health regen
+        self.health = PLAYER_MAX_HEALTH
+        self.health_recovery_delay = 700
+        self.time_prev = pg.time.get_ticks()
+
+    def recover_health(self):
+        if self.check_health_recovery_delay() and self.health < PLAYER_MAX_HEALTH:
+            self.health += 1
+
+    def check_health_recovery_delay(self):
+        time_now = pg.time.get_ticks()
+        if time_now - self.time_prev > self.health_recovery_delay:
+            self.time_prev = time_now
+            return True
+    #Comment out above here to line 14 to stop health regen
+
+    def check_game_over(self):
+        if self.health < 1:
+            self.game.object_renderer.game_over()
+            pg.display.flip()
+            pg.time.delay(1500)
+            self.game.new_game()
+
+    def get_damge(self, damage):
+        self.health -= damage
+        self.game.object_renderer.player_damage()
+        self.game.sound.player_pain.play()
+        self.check_game_over()
 
     def single_fire_event(self, event):
         if event.type == pg.MOUSEBUTTONDOWN:
@@ -63,6 +93,7 @@ class Player:
         
     def update(self):
         self.movement()
+        self.recover_health()
         
     @property
     def pos(self):
