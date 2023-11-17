@@ -20,7 +20,7 @@ class NPC(AnimatedSprite):
         self.alive = True
         self.pain = False
         self.ray_cast_value = False
-        self.fram_counter = 0
+        self.frame_counter = 0
         self.player_search_trigger = False
 
     def update(self):
@@ -58,10 +58,10 @@ class NPC(AnimatedSprite):
 
     def animate_death(self):
         if not self.alive:
-            if self.game.global_trigger and self.fram_counter < len(self.death_images) -1:
-                self.death_images.rotate(1)
+            if self.game.global_trigger and self.frame_counter < len(self.death_images) -1:
+                self.death_images.rotate(-1)
                 self.image = self.death_images[0]
-                self.fram_counter += 1
+                self.frame_counter += 1
 
     
     def animate_pain(self):
@@ -184,3 +184,28 @@ class NPC(AnimatedSprite):
         pg.draw.circle(self.game.screen,'red',(100 * self.x, 100 * self.y), 15)
         if self.ray_cast_player_npc():
             pg.draw.line(self.game.screen,'orange',(100 * self.game.player.x, 100 * self.game.player.y), (100 * self.x,100 * self.y), 2)
+            
+class Soldier(NPC):
+    def __init__(self,game,path='src/cis350doom/resources/sprites/npc/soldier/0.png',pos=(10.5,5.5),
+              scale=0.6,shift=0.38, animation_time=180):
+        super().__init__(game,path,pos,scale,shift,animation_time)
+        
+class CacoDemon(NPC):
+    def __init__(self,game,path='src/cis350doom/resources/sprites/npc/caco_demon/0.png',pos=(10.5,5.5),
+              scale=0.7,shift=0.27, animation_time=250):
+        super().__init__(game,path,pos,scale,shift,animation_time)
+        self.attack_dist = 1.0
+        self.speed = 0.05
+        self.health = 150
+        self.attack_damage = 25
+        self.accuracy = 0.35
+        
+class CyberDemon(NPC):
+    def __init__(self,game,path='src/cis350doom/resources/sprites/npc/cyber_demon/0.png',pos=(10.5,5.5),
+              scale=1,shift=0.04, animation_time=210):
+        super().__init__(game,path,pos,scale,shift,animation_time)
+        self.attack_dist = 6
+        self.speed = 0.055
+        self.health = 200
+        self.attack_damage = 15
+        self.accuracy = 0.25

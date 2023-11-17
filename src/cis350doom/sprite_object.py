@@ -66,7 +66,7 @@ class AnimatedSprite(SpriteObject):
         self.animation_time = animation_time
         self.path = path.rsplit('/', 1)[0]
         self.images = self.get_images(self.path)
-        #define animation time and tigger to preform the animation 
+        #define animation time and trigger to preform the animation 
         self.animation_time_prev = pg.time.get_ticks()
         self.animation_tigger = False
 
@@ -102,4 +102,17 @@ class AnimatedSprite(SpriteObject):
                 images.append(img)
         return images
 
+class GreenLight(AnimatedSprite):
+    def __init__(self, game, path = 'src/cis350doom/resources/sprites/animated_sprites/green_light/0.png',
+                pos=(6,9), scale=0.8, shift = 0.15, animation_time = 120):
+        super().__init__(game, path, pos, scale, shift, animation_time)
 
+class RedLight(AnimatedSprite):
+    def __init__(self, game, path = 'src/cis350doom/resources/sprites/animated_sprites/red_light/0.png',
+                pos=(6,9), scale=0.8, shift = 0.15, animation_time = 120):
+        super().__init__(game, path, pos, scale, shift, animation_time)
+
+class Candle(SpriteObject):
+    def __init__(self, game, path = 'src/cis350doom/resources/sprites/static_sprites/candlebra.png',
+                  pos = (10.5, 3.5), scale = 0.7, shift = 0.27):
+        super().__init__(game, path, pos, scale, shift)

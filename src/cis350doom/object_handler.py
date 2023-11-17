@@ -13,30 +13,34 @@ class ObjectHandler:
         add_npc = self.add_npc
         self.npc_positions = {}
 
-        #sprite map
-        # add_sprite(SpriteObject(game, pos=(1.5,7.5)))
-        # add_sprite(SpriteObject(game, pos=(4, 8)))
-        # add_sprite(SpriteObject(game, pos=(8, 4)))
-        # add_sprite(AnimatedSprite(game, pos=(3,9)))
-        # add_sprite(AnimatedSprite(game, pos=(1,6)))
-        # add_sprite(AnimatedSprite(game, path=self.anim_sprite_path + '/red_light/0.png', pos=(6,6)))
+        # Sprite map
+        # add_sprite(SpriteObject(game))
+        # add_sprite(AnimatedSprite(game))
+        
+        # Animated Green Light Sprites
+        add_sprite(GreenLight(game,pos=(5.5,3.3)))
+        add_sprite(GreenLight(game,pos=(5.5,4.7)))
+        add_sprite(GreenLight(game,pos=(2.8,2.5)))
+        add_sprite(GreenLight(game,pos=(2.8,5.5)))
+        add_sprite(GreenLight(game,pos=(2.8,10.3)))
+        add_sprite(GreenLight(game,pos=(2.8,14.7)))
+        
+        # Animated Red Light Sprites
+        add_sprite(RedLight(game, pos=(1.15,1.15)))
+        add_sprite(RedLight(game, pos=(1.15,18.85)))
+        add_sprite(RedLight(game, pos=(31.85,1.15)))
+        add_sprite(RedLight(game, pos=(31.85,18.85)))
 
-        #sprite map
-        add_sprite(SpriteObject(game))
-        add_sprite(AnimatedSprite(game))
-        add_sprite(AnimatedSprite(game,pos=(1.5,1.5)))
-        add_sprite(AnimatedSprite(game,pos=(1.5,7.5)))
-        add_sprite(AnimatedSprite(game,pos=(5.5,4.75)))
-        add_sprite(AnimatedSprite(game,pos=(7.5,2.5)))
-        add_sprite(AnimatedSprite(game,pos=(7.5,5.5)))
-        add_sprite(AnimatedSprite(game,pos=(14.5,1.5)))
-        add_sprite(AnimatedSprite(game, path=self.anim_sprite_path + '/red_light/0.png', pos=(14.5,7.5)))
-        add_sprite(AnimatedSprite(game, path=self.anim_sprite_path + '/red_light/0.png', pos=(12.5,7.5)))
-        add_sprite(AnimatedSprite(game, path=self.anim_sprite_path + '/red_light/0.png', pos=(9.5,7.5)))
+        
+        # Static Candle Sprites
+        add_sprite(Candle(game,pos=(17.15,8.85)))
+        add_sprite(Candle(game,pos=(14.85,8.85)))
+        add_sprite(Candle(game,pos=(17.15,11.15)))
+        add_sprite(Candle(game,pos=(14.85,11.15)))
 
-        #npc map
-        add_npc(NPC(game))
-        add_npc(NPC(game, pos=(11.5,4.5)))
+        # Npc map
+        # add_npc(NPC(game))
+        # add_npc(CyberDemon(game, pos=(11.5,4.5)))
 
 
     def update(self):
