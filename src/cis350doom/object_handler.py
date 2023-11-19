@@ -39,9 +39,9 @@ class ObjectHandler:
         add_sprite(Candle(game,pos=(14.85,11.15)))
 
         # Npc map
-        # add_npc(NPC(game))
+        add_npc(CyberDemon(game, pos=(16.5,28.5)))
         # add_npc(CyberDemon(game, pos=(11.5,4.5)))
-
+        # add_npc(CyberDemon(game, pos=(11.5,4.5)))
 
     def update(self):
         self.npc_positions = {npc.map_pos for npc in self.npc_list if npc.alive}

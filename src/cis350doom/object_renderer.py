@@ -6,7 +6,7 @@ class ObjectRenderer:
         self.game = game
         self.screen = game.screen
         self.wall_textures = self.load_wall_textures()
-        self.sky_image = self.get_texture('src/cis350doom/resources/textures/HellAlps.png', (WIDTH, HALF_HEIGHT))
+        self.sky_image = self.get_texture('src/cis350doom/resources/textures/Hell_Alps.png', (WIDTH, HALF_HEIGHT))
         self.sky_offset = 0
         
         self.blood_screen = self.get_texture('src/cis350doom/resources/textures/blood_screen.png', RES)
@@ -16,7 +16,7 @@ class ObjectRenderer:
         self.digits = dict(zip(map(str, range(11)), self.digit_images))
 
         self.game_over_image = self.get_texture('src/cis350doom/resources/textures/game_over.png', RES)
-       
+    
     def draw(self):
         self.draw_background()
         self.render_game_objects()
@@ -58,4 +58,7 @@ class ObjectRenderer:
             3: self.get_texture('src/cis350doom/resources/textures/3.png'),
             4: self.get_texture('src/cis350doom/resources/textures/4.png'),
             5: self.get_texture('src/cis350doom/resources/textures/5.png'),
+            6: self.get_texture('src/cis350doom/resources/textures/BrownGold3.png'),
+            7: self.get_texture('src/cis350doom/resources/textures/ArchME1.png'),
+            8: self.get_texture('src/cis350doom/resources/textures/RadialWindow3.png'),
         }

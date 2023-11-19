@@ -12,4 +12,12 @@ class Sound:
         self.player_pain = pg.mixer.Sound(self.path + 'player_pain.wav')
         self.theme = pg.mixer.music.load(self.path + 'theme.mp3')
 
+class Theme:
+    def __init__(self, game):
+        self.game = game
+        pg.mixer.init()
+        self.path = 'src/cis350doom/resources/sound/'
+        self.theme = pg.mixer.music.load(self.path + 'theme.mp3')
+        game.theme.play.loop()
+
 #If you get init() error use this command in terminal -> sudo apt-get install libsdl1.2-dev libsdl-image1.2 libsdl-mixer1.2 libsdl-ttf2.0
