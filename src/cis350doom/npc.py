@@ -186,9 +186,9 @@ class NPC(AnimatedSprite):
             pg.draw.line(self.game.screen,'orange',(100 * self.game.player.x, 100 * self.game.player.y), (100 * self.x,100 * self.y), 2)
             
 class Soldier(NPC):
-    def __init__(self,game,path='src/cis350doom/resources/sprites/npc/soldier/0.png',pos=(10.5,5.5),
+    def __init__(self,game,path='src/cis350doom/resources/sprites/npc/soldier/0.png',pos=(9.5,5.5),
               scale=0.6,shift=0.38, animation_time=180):
-        super().__init__(game,path,pos,scale,shift,animation_time)
+       super().__init__(game,path,pos,scale,shift,animation_time)
         
 class CacoDemon(NPC):
     def __init__(self,game,path='src/cis350doom/resources/sprites/npc/caco_demon/0.png',pos=(10.5,5.5),
@@ -201,8 +201,8 @@ class CacoDemon(NPC):
         self.accuracy = 0.35
         
 class CyberDemon(NPC):
-    def __init__(self,game,path='src/cis350doom/resources/sprites/npc/cyber_demon/0.png',pos=(10.5,5.5),
-              scale=1,shift=0.04, animation_time=210):
+   def __init__(self,game,path='src/cis350doom/resources/sprites/npc/cyber_demon/0.png',pos=(1,5.5),
+             scale=1,shift=0.04, animation_time=210):
         super().__init__(game,path,pos,scale,shift,animation_time)
         self.attack_dist = 6
         self.speed = 0.055
