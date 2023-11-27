@@ -110,7 +110,7 @@ class Player:
 
     def pickup_health_pack(self, health_pack):
         if health_pack.is_active:
-            self.heal(int(self.health * .1))
+            self.heal(int(self.health * .2))
             health_pack.is_active = False
             # Remove the health pack from the sprite list
             if health_pack in self.game.object_handler.sprite_list:

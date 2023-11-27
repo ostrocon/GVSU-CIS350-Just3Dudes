@@ -29,3 +29,8 @@ class Weapon(AnimatedSprite):
     def update(self):
             self.check_animation_time()
             self.animate_shot()
+
+class Shotgun(Weapon):
+    def __init__(self, game):
+        super().__init__(game=game,path='src/cis350doom/resources/sprites/weapon/shotgun/0.png',scale=0.4,animation_time=90)
+        self.damage = 60

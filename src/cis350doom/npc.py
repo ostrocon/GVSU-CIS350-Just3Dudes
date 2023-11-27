@@ -88,7 +88,6 @@ class NPC(AnimatedSprite):
     # Item drops
     def drop_item(self):
         health_pack = HealthPack(game=self.game, pos=(self.x, self.y))
-        print(f"Health Pack is at: ({self.x},{self.y})")
         self.game.object_handler.add_sprite(health_pack)
 
     def run_logic(self):
