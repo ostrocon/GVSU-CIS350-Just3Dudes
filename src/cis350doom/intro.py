@@ -117,9 +117,8 @@ class App:
     def run(self):
         while True:
             for event in pg.event.get():
-                if event.type == pg.QUIT:
-                    pg.quit()
-                    sys.exit()
+                if event.type == pg.KEYUP:
+                    return False
             self.update()
             self.draw()
 

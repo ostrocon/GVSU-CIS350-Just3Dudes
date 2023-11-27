@@ -10,6 +10,7 @@ from object_handler import *
 from weapon import *
 from sound import *
 from pathfinding import *
+from intro import *
 
 class Game:
     def __init__(self):
@@ -33,6 +34,7 @@ class Game:
         self.weapon = Shotgun(self)
         self.sound = Sound(self)
         self.pathfinding = PathFinding(self)
+        self.doom_fire = DoomFire(self)
 
     def update(self):
         self.player.update()
@@ -43,11 +45,14 @@ class Game:
         pg.display.flip()
         self.delta_time = self.clock.tick(FPS)
         pg.display.set_caption(f'{self.clock.get_fps() :.1f}')
+        self.doom_fire.update()
         
     def draw(self):
-        # self.screen.fill('black')
+        #self.screen.fill('black')
         self.object_renderer.draw()
         self.weapon.draw()
+        #self.doom_fire.draw()
+       
 
         #Used to represent 2d mode comment these out to play 3d and uncomment above ones
         # self.map.draw()
@@ -70,5 +75,7 @@ class Game:
             self.draw()
             
 if __name__ == '__main__':
+    app = App()
+    app.run()
     game = Game()
     game.run()
