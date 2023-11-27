@@ -1,4 +1,5 @@
 from sprite_object import*
+from object_handler import*
 from random import randint, random, choice
 
 class NPC(AnimatedSprite):
@@ -82,6 +83,13 @@ class NPC(AnimatedSprite):
         if self.health < 1:
             self.alive = False
             self.game.sound.npc_death.play()
+            self.drop_item()
+    
+    # Item drops
+    def drop_item(self):
+        health_pack = HealthPack(game=self.game, pos=(self.x, self.y))
+        print(f"Health Pack is at: ({self.x},{self.y})")
+        self.game.object_handler.add_sprite(health_pack)
 
     def run_logic(self):
         if self.alive:

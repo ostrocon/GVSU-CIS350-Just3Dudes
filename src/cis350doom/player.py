@@ -1,5 +1,6 @@
 from settings import *
 import pygame as pg
+from sprite_object import*
 import math
 
 class Player:
@@ -94,7 +95,27 @@ class Player:
             self.x += dx
         if self.check_wall(int(self.x), int(self.y + dy * scale)):
             self.y += dy
-    
+
+    def heal(self, amount):
+        self.health += amount
+        if self.health > PLAYER_MAX_HEALTH:
+            self.health = PLAYER_MAX_HEALTH
+            
+    def check_health_pack_collision(self):
+        for item in self.game.object_handler.sprite_list:
+            if isinstance(item, HealthPack) and item.is_active:
+                distance = ((self.x - item.x) ** 2 + (self.y - item.y) ** 2) ** 0.5
+                if distance < 1:  # Adjust this threshold as needed
+                    self.pickup_health_pack(item)
+
+    def pickup_health_pack(self, health_pack):
+        if health_pack.is_active:
+            self.heal(int(self.health * .1))
+            health_pack.is_active = False
+            # Remove the health pack from the sprite list
+            if health_pack in self.game.object_handler.sprite_list:
+                self.game.object_handler.sprite_list.remove(health_pack)
+
     def draw(self):
         # pg.draw.line(self.game.screen, 'yellow', (self.x * 100, self.y * 100),
         #             (self.x * 100 + WIDTH * math.cos(self.angle),
@@ -113,6 +134,7 @@ class Player:
         self.movement()
         self.mouse_control()
         self.recover_health()
+        self.check_health_pack_collision()
         
     @property
     def pos(self):

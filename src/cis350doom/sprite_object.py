@@ -116,3 +116,24 @@ class Candle(SpriteObject):
     def __init__(self, game, path = 'src/cis350doom/resources/sprites/static_sprites/candlebra.png',
                   pos = (10.5, 3.5), scale = 0.7, shift = 0.27):
         super().__init__(game, path, pos, scale, shift)
+
+# Pickup items
+class HealthPack(SpriteObject):
+    def __init__(self, game, path='src/cis350doom/resources/sprites/pickups/Health.png',
+                 pos=(10.5, 3.5), scale=0.7, shift=0.27):
+        super().__init__(game, path, pos, scale, shift)
+        self.is_active = True
+        self.picked_up = False
+
+    def get_sprite_projection(self):
+        proj = SCREEN_DIST / self.norm_dist * self.SPRITE_SCALE
+        proj_width, proj_height = proj * self.IMAGE_RATIO, proj
+
+        image = pg.transform.scale(self.image, (proj_width, proj_height))
+
+        self.sprite_half_width = proj_width // 2
+        height_shift = proj_height * self.SPRITE_HEIGHT_SHIFT
+        ground_level = 490
+        pos = self.screen_x - self.sprite_half_width, ground_level - proj_height // 2 + height_shift
+
+        self.game.raycasting.objects_to_render.append((self.norm_dist, image, pos))

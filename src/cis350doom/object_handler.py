@@ -16,6 +16,8 @@ class ObjectHandler:
         # Sprite map
         # add_sprite(SpriteObject(game))
         # add_sprite(AnimatedSprite(game))
+        # add_sprite(HealthPack(game,pos=(16.5,28.5)))
+
         
         # Animated Green Light Sprites
         add_sprite(GreenLight(game,pos=(5.5,3.3)))
@@ -39,18 +41,27 @@ class ObjectHandler:
         add_sprite(Candle(game,pos=(14.85,11.15)))
 
         # Npc map
-        #add_npc(CyberDemon(game, pos=(16.5,28.5)))
-        # add_npc(CyberDemon(game, pos=(11.5,4.5)))
-        # add_npc(CyberDemon(game, pos=(11.5,4.5)))
+        add_npc(Soldier(game, pos=(16.5,28.5)))
+        add_npc(Soldier(game, pos=(11.5,4.5)))
+        add_npc(Soldier(game, pos=(11.5,4.5)))
 
     def update(self):
         self.npc_positions = {npc.map_pos for npc in self.npc_list if npc.alive}
         [sprite.update() for sprite in self.sprite_list]
         [npc.update() for npc in self.npc_list]
-
-
+        self.remove_picked_health_packs()
+    
+    def remove_picked_health_packs(self):
+        health_packs = [sprite for sprite in self.sprite_list if isinstance(sprite, HealthPack) and not sprite.is_active]
+        for pack in health_packs:
+            if pack.picked_up:
+                self.sprite_list.remove(pack)
+        
     def add_sprite(self, sprite):
         self.sprite_list.append(sprite)
 
     def add_npc(self,npc):
         self.npc_list.append(npc)
+    
+    def get_health_packs(self):
+        return [sprite for sprite in self.sprite_list if isinstance(sprite, HealthPack)]
