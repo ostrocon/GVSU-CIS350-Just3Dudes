@@ -2,10 +2,15 @@ from settings import *
 import pygame as pg
 from sprite_object import*
 import math
+from weapon import *
 
 class Player:
     def __init__(self, game):
         self.game = game
+        self.current_weapon_sprite = None
+        self.weapon_pickup_cooldown = False
+        self.weapon_pickup_cooldown_duration = 2000  # 2 seconds in milliseconds
+        self.weapon_pickup_cooldown_timer = 0
         self.x, self.y = PLAYER_POS
         self.angle = PLAYER_ANGLE
         self.shot = False
@@ -115,6 +120,45 @@ class Player:
             # Remove the health pack from the sprite list
             if health_pack in self.game.object_handler.sprite_list:
                 self.game.object_handler.sprite_list.remove(health_pack)
+                
+    def check_weapon_collision(self):
+        for item in self.game.object_handler.sprite_list:
+            if isinstance(item, ShotgunSprite) and item.is_active:
+                distance = ((self.x - item.x) ** 2 + (self.y - item.y) ** 2) ** 0.5
+                if distance < 0.5 and not self.weapon_pickup_cooldown:  # Adjust this threshold as needed
+                    self.pickup_weapon(item)
+                    self.weapon_pickup_cooldown = True
+                    self.weapon_pickup_cooldown_timer = pg.time.get_ticks()
+
+            elif isinstance(item, DoubleShotgunSprite) and item.is_active:
+                distance = ((self.x - item.x) ** 2 + (self.y - item.y) ** 2) ** 0.5
+                if distance < 0.5 and not self.weapon_pickup_cooldown:  # Adjust this threshold as needed
+                    self.pickup_weapon(item)
+                    self.weapon_pickup_cooldown = True
+                    self.weapon_pickup_cooldown_timer = pg.time.get_ticks()
+    
+    def pickup_weapon(self, weapon):
+        if weapon.is_active:
+            previous_weapon = self.game.weapon
+            weapon.is_active = False
+
+            # Swap weapons between player and ground sprite
+            if isinstance(weapon, ShotgunSprite):
+                self.game.weapon = Shotgun(self.game)
+            elif isinstance(weapon, DoubleShotgunSprite):
+                self.game.weapon = DoubleShotgun(self.game)
+
+            # Remove the picked-up weapon sprite from the sprite list
+            if weapon in self.game.object_handler.sprite_list:
+                self.game.object_handler.sprite_list.remove(weapon)
+
+            # Create the ground sprite for the player's previous weapon and add it to the sprite list
+            if isinstance(previous_weapon, Shotgun):
+                previous_weapon_sprite = ShotgunSprite(game=self.game, pos=(weapon.x, weapon.y))
+            elif isinstance(previous_weapon, DoubleShotgun):
+                previous_weapon_sprite = DoubleShotgunSprite(game=self.game, pos=(weapon.x, weapon.y))
+
+            self.game.object_handler.add_sprite(previous_weapon_sprite)
 
     def draw(self):
         # pg.draw.line(self.game.screen, 'yellow', (self.x * 100, self.y * 100),
@@ -135,6 +179,11 @@ class Player:
         self.mouse_control()
         self.recover_health()
         self.check_health_pack_collision()
+        self.check_weapon_collision()
+        if self.weapon_pickup_cooldown:
+            current_time = pg.time.get_ticks()
+            if current_time - self.weapon_pickup_cooldown_timer >= self.weapon_pickup_cooldown_duration:
+                self.weapon_pickup_cooldown = False
         
     @property
     def pos(self):

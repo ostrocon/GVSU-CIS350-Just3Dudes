@@ -1,7 +1,7 @@
 from sprite_object import *
 
 class Weapon(AnimatedSprite):
-    def __init__(self, game, path='src/cis350doom/resources/sprites/weapon/shotgun/0.png', scale=0.4, animation_time=90):
+    def __init__(self, game, path, scale=0.4, animation_time=90):
         super().__init__(game=game,path=path,scale=scale,animation_time=animation_time)
         self.images = deque (
             [pg.transform.smoothscale(img , (self.image.get_width() * scale, self.image.get_height() * scale))
@@ -34,3 +34,8 @@ class Shotgun(Weapon):
     def __init__(self, game):
         super().__init__(game=game,path='src/cis350doom/resources/sprites/weapon/shotgun/0.png',scale=0.4,animation_time=90)
         self.damage = 60
+
+class DoubleShotgun(Weapon):
+    def __init__(self, game):
+        super().__init__(game=game,path='src/cis350doom/resources/sprites/weapon/shotgun/shotgun1.png',scale=0.4,animation_time=90)
+        self.damage = 100
