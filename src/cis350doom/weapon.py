@@ -37,5 +37,5 @@ class Shotgun(Weapon):
 
 class DoubleShotgun(Weapon):
     def __init__(self, game):
-        super().__init__(game=game,path='src/cis350doom/resources/sprites/weapon/shotgun/shotgun1.png',scale=0.4,animation_time=90)
+        super().__init__(game=game,path='src/cis350doom/resources/sprites/weapon/doubleshotgun/shotgun1.png',scale=0.4,animation_time=90)
         self.damage = 100

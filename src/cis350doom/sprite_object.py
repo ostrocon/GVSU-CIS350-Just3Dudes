@@ -138,6 +138,8 @@ class HealthPack(SpriteObject):
 
         self.game.raycasting.objects_to_render.append((self.norm_dist, image, pos))
         
+        self.game.raycasting.objects_to_render.append((self.norm_dist, image, pos))
+        
 class WeaponSprite(SpriteObject):
     def __init__(self, game, path, pos=(10.5, 3.5), scale=1, shift=0.27):
         super().__init__(game, path, pos, scale, shift)
@@ -147,14 +149,10 @@ class WeaponSprite(SpriteObject):
     def get_sprite_projection(self):
         proj = SCREEN_DIST / self.norm_dist * self.SPRITE_SCALE
         proj_width, proj_height = proj * self.IMAGE_RATIO, proj
-
         image = pg.transform.scale(self.image, (proj_width, proj_height))
-
         self.sprite_half_width = proj_width // 2
-
         ground_level = 490
         fixed_height = 120  # Set a fixed height for the sprite from the ground
-
         # Calculate the height of the sprite relative to the ground level
         sprite_height = ground_level - fixed_height
         
