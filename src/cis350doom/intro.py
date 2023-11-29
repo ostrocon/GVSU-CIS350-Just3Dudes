@@ -29,10 +29,20 @@ class DoomFire:
 
     def draw_logo(self):
         #track initail position of logo 
+        pg.init()
         if self.logo_start_y > self.logo_y:
             #moves logo up
             self.logo_start_y -= 5
         self.app.screen.blit(self.logo, (self.logo_x, self.logo_start_y))
+
+        
+        # Add a message below the logo
+        font = pg.font.Font(None, 36)
+        message = font.render("Press the UP arrow to START", True, (255, 255, 255))
+
+        # Adjust the message position based on the current logo position
+        message_rect = message.get_rect(center=(WIDTH // 2, self.logo_start_y + self.logo.get_height() + 30))
+        self.app.screen.blit(message, message_rect)
 
     def do_fire(self):
         #iterate over fire array and skip index 0, assign the next value above to be the next color
@@ -93,9 +103,10 @@ class DoomFire:
         self.do_fire()
 
     def draw(self):
-        self.draw_logo()
+        
         #self.draw_palette()
         self.draw_fire()
+        self.draw_logo()
 
 
 class App:
@@ -115,7 +126,7 @@ class App:
         pg.display.flip()
 
     def run(self):
-        while True:
+        while True:     
             for event in pg.event.get():
                 if event.type == pg.KEYUP:
                     return False
