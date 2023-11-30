@@ -41,11 +41,13 @@ class ObjectHandler:
         add_sprite(Candle(game,pos=(14.85,11.15)))
 
         # Npc map
-        # add_npc(Soldier(game, pos=(16.5,28.5)))
-        # add_npc(Soldier(game, pos=(11.5,4.5)))
-        # add_npc(Soldier(game, pos=(11.5,4.5)))
+        add_npc(Soldier(game, pos=(16.5,28.5)))
+        add_npc(Soldier(game, pos=(11.5,4.5)))
+        add_npc(Soldier(game, pos=(11.5,4.5)))
         
-        add_sprite(DoubleShotgunSprite(game,pos=(5.5,3.3)))
+        add_sprite(DoubleShotgunSprite(game,pos=(3,3.3)))
+        add_sprite(ShotgunSprite(game,pos=(3,6.3)))
+        add_sprite(PistolSprite(game,pos=(3,9.3)))
 
     def update(self):
         self.npc_positions = {npc.map_pos for npc in self.npc_list if npc.alive}
