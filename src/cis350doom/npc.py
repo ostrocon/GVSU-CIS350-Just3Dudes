@@ -1,6 +1,6 @@
 from sprite_object import*
 from object_handler import*
-from random import randint, random, choice
+from random import randint
 
 class NPC(AnimatedSprite):
     def __init__(self,game,path='src/cis350doom/resources/sprites/npc/soldier/0.png',pos=(10.5,5.5),
@@ -63,7 +63,6 @@ class NPC(AnimatedSprite):
                 self.death_images.rotate(-1)
                 self.image = self.death_images[0]
                 self.frame_counter += 1
-
     
     def animate_pain(self):
         self.animate(self.pain_images)
@@ -87,8 +86,10 @@ class NPC(AnimatedSprite):
     
     # Item drops
     def drop_item(self):
-        health_pack = HealthPack(game=self.game, pos=(self.x, self.y))
-        self.game.object_handler.add_sprite(health_pack)
+        drop_chance = random.randint(1, 2)
+        if drop_chance == 1:
+            health_pack = HealthPack(game=self.game, pos=(self.x, self.y))
+            self.game.object_handler.add_sprite(health_pack)
 
     def run_logic(self):
         if self.alive:
