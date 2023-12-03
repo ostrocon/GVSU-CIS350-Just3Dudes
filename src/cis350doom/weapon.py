@@ -32,7 +32,7 @@ class Weapon(AnimatedSprite):
 
 class Shotgun(Weapon):
     def __init__(self, game):
-        super().__init__(game=game,path='src/cis350doom/resources/sprites/weapon/shotgun/shotgun1.png',scale=0.4,animation_time=90)
+        super().__init__(game=game,path='src/cis350doom/resources/sprites/weapon/shotgun/shotgun1.png',scale=0.4,animation_time=120)
         self.damage = 50
 
 class DoubleShotgun(Weapon):
@@ -42,5 +42,10 @@ class DoubleShotgun(Weapon):
 
 class Pistol(Weapon):
     def __init__(self, game):
-        super().__init__(game=game,path='src/cis350doom/resources/sprites/weapon/pistol/pistol1.png',scale=0.4,animation_time=70)
-        self.damage = 30
+        super().__init__(game=game,path='src/cis350doom/resources/sprites/weapon/pistol/0.png',scale=0.4,animation_time=40)
+        self.damage = 20
+
+class AutoShotgun(Weapon):
+    def __init__(self, game):
+        super().__init__(game=game,path='src/cis350doom/resources/sprites/weapon/autoshotgun/0.png',scale=0.4,animation_time=60)
+        self.damage = 32

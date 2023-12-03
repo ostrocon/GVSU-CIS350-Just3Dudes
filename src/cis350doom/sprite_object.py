@@ -283,3 +283,19 @@ class PistolSprite(WeaponSprite):
     
     def update(self):
         return super().update()
+    
+class AutoShotgunSprite(WeaponSprite):
+    def __init__(self, game, path='src/cis350doom/resources/sprites/pickups/autoshotgunsprite.png',
+                 pos=(10.5, 3.5), scale=0.7, shift=0.27):
+        super().__init__(game, path, pos, scale, shift)
+        self.is_active = True
+        self.picked_up = False
+    
+    def get_sprite(self):
+        return super().get_sprite()
+    
+    def get_sprite_projection(self):
+        return super().get_sprite_projection()
+    
+    def update(self):
+        return super().update()

@@ -66,7 +66,6 @@ class ObjectHandler:
         add_sprite(Tree(game,pos=(16, 25)))
 
         # Places GraySpikes, BrownSpikes, and BrokenTrees
-        
         columns = range(9, 23)
         rows = range(19,33)
         interval = 2.0
@@ -88,6 +87,7 @@ class ObjectHandler:
         rows1 = range(19,33)
         interval1 = 1.0
 
+        # Places StickGuys, HeadSticks, and HeadPiles
         for x in columns1:
             for y in rows1:
                 if random.random() < 0.2:
@@ -112,6 +112,7 @@ class ObjectHandler:
         add_sprite(DoubleShotgunSprite(game,pos=(3,3.3)))
         add_sprite(ShotgunSprite(game,pos=(3,6.3)))
         add_sprite(PistolSprite(game,pos=(3,9.3)))
+        add_sprite(AutoShotgunSprite(game,pos=(3,7.3)))
 
     def update(self):
         self.npc_positions = {npc.map_pos for npc in self.npc_list if npc.alive}

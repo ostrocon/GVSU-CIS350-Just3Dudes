@@ -48,7 +48,7 @@ class Player:
 
     def single_fire_event(self, event):
         if event.type == pg.MOUSEBUTTONDOWN:
-            if event.button == 1 and not self.shot and not self.game.weapon.reloading :
+            if event.button == 1 and not self.shot and not self.game.weapon.reloading:
                 self.game.sound.shotgun.play()
                 self.shot = True
                 self.game.weapon.reloading = True
@@ -143,6 +143,13 @@ class Player:
                     self.pickup_weapon(item)
                     self.weapon_pickup_cooldown = True
                     self.weapon_pickup_cooldown_timer = pg.time.get_ticks()
+
+            elif isinstance(item, AutoShotgunSprite) and item.is_active:
+                distance = ((self.x - item.x) ** 2 + (self.y - item.y) ** 2) ** 0.5
+                if distance < 0.5 and not self.weapon_pickup_cooldown:  # Adjust this threshold as needed
+                    self.pickup_weapon(item)
+                    self.weapon_pickup_cooldown = True
+                    self.weapon_pickup_cooldown_timer = pg.time.get_ticks()
     
     def pickup_weapon(self, weapon):
         if weapon.is_active:
@@ -156,6 +163,8 @@ class Player:
                 self.game.weapon = DoubleShotgun(self.game)
             elif isinstance(weapon, PistolSprite):
                 self.game.weapon = Pistol(self.game)
+            elif isinstance(weapon, AutoShotgunSprite):
+                self.game.weapon = AutoShotgun(self.game)
 
             # Remove the picked-up weapon sprite from the sprite list
             if weapon in self.game.object_handler.sprite_list:
@@ -168,6 +177,8 @@ class Player:
                 previous_weapon_sprite = DoubleShotgunSprite(game=self.game, pos=(weapon.x, weapon.y))
             elif isinstance(previous_weapon, Pistol):
                 previous_weapon_sprite = PistolSprite(game=self.game, pos=(weapon.x, weapon.y))
+            elif isinstance(previous_weapon, AutoShotgun):
+                previous_weapon_sprite = AutoShotgunSprite(game=self.game, pos=(weapon.x, weapon.y))
 
             self.game.object_handler.add_sprite(previous_weapon_sprite)
 

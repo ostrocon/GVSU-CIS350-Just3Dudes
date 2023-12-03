@@ -33,7 +33,7 @@ class Game:
         self.raycasting = RayCasting(self)
         self.static_sprite = SpriteObject(self)
         self.object_handler = ObjectHandler(self)
-        self.weapon = Shotgun(self)
+        self.weapon = Pistol(self)
         self.sound = Sound(self)
         self.pathfinding = PathFinding(self)
         self.doom_fire = DoomFire(self)
