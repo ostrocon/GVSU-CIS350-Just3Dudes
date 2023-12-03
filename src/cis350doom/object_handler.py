@@ -1,5 +1,6 @@
 from sprite_object import *
 from npc import *
+import random
 
 class ObjectHandler:
     def __init__(self,game):
@@ -33,6 +34,8 @@ class ObjectHandler:
         add_sprite(RedLight(game, pos=(31.85,1.15)))
         add_sprite(RedLight(game, pos=(31.85,18.85)))
 
+        # Animated Fire Barrel Sprite
+        add_sprite(FireBarrel(game, pos=(0, 0)))
         
         # Static Candle Sprites
         add_sprite(Candle(game,pos=(17.15,8.85)))
@@ -40,11 +43,72 @@ class ObjectHandler:
         add_sprite(Candle(game,pos=(17.15,11.15)))
         add_sprite(Candle(game,pos=(14.85,11.15)))
 
-        # Npc map
-        add_npc(Soldier(game, pos=(16.5,28.5)))
-        add_npc(Soldier(game, pos=(11.5,4.5)))
-        add_npc(Soldier(game, pos=(11.5,4.5)))
+        # Static Fire Barrel Sprites
+        add_sprite(FireBarrel(game, pos=(12.6, 30.8)))
+        add_sprite(FireBarrel(game, pos=(21, 31)))
+        add_sprite(FireBarrel(game, pos=(15, 25.7)))
+        add_sprite(FireBarrel(game, pos=(19, 21.8)))
+        add_sprite(FireBarrel(game, pos=(13, 21.8)))
+
+        # Static guy-on-stick Sprites
+        add_sprite(StickGuy(game, pos=(0, 0)))
+
+        # Static heads-on-stick Sprites
+        add_sprite(HeadStick(game, pos=(22, 22)))
+        add_sprite(HeadStick(game, pos=(17, 26)))
+        add_sprite(HeadStick(game, pos=(12, 29)))
+
+        # Static Tree-related Sprites
+        add_sprite(Tree(game,pos=(21, 21)))
+        add_sprite(Tree(game,pos=(19, 31)))
+        add_sprite(Tree(game,pos=(11, 30)))
+        add_sprite(Tree(game,pos=(12, 23)))
+        add_sprite(Tree(game,pos=(16, 25)))
+
+        # Places GraySpikes, BrownSpikes, and BrokenTrees
         
+        columns = range(9, 23)
+        rows = range(19,33)
+        interval = 2.0
+
+        for x in columns:
+            for y in rows:
+                if random.random() < 0.2:
+                    pos = (x + 0.5 + random.uniform(-0.3, 0.3), y + 0.5 + random.uniform(-0.3, 0.3))
+                    rand = random.random()
+                    if  0 < rand < 0.4:
+                        add_sprite(GraySpike(game, pos=pos))
+                    elif 0.4 < rand < 0.8:
+                        add_sprite(BrownSpike(game, pos=pos))
+                    else:
+                        add_sprite(BrokenTree(game, pos=pos))
+            y += interval
+
+        columns1 = range(1, 8)
+        rows1 = range(19,33)
+        interval1 = 1.0
+
+        for x in columns1:
+            for y in rows1:
+                if random.random() < 0.2:
+                    pos = (x + 0.5 + random.uniform(-0.3, 0.3), y + 0.5 + random.uniform(-0.3, 0.3))
+                    rand = random.random()
+                    if 0 < rand < 0.3:
+                        add_sprite(StickGuy(game, pos=pos))
+                    elif 0.3 < rand < 0.6:
+                        add_sprite(HeadStick(game, pos=pos))
+                    else:
+                        add_sprite(HeadPile(game, pos=pos))
+            y += interval1
+
+        
+
+        # Npc map
+        # add_npc(Soldier(game, pos=(16.5,28.5)))
+        add_npc(Guy(game, pos=(3, 26)))
+        # add_npc(Soldier(game, pos=(11.5,4.5)))
+        
+        # Gun Sprites
         add_sprite(DoubleShotgunSprite(game,pos=(3,3.3)))
         add_sprite(ShotgunSprite(game,pos=(3,6.3)))
         add_sprite(PistolSprite(game,pos=(3,9.3)))

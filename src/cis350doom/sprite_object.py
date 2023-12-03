@@ -19,8 +19,8 @@ class SpriteObject:
         self.SPRITE_HEIGHT_SHIFT = shift
 
     def get_sprite_projection(self):
-        #must take into accound teh different aspect ration of the sprite
-        #determine the image ration and adjust the correct projection size
+        #must take into account the different aspect ratio of the sprite
+        #determine the image ratio and adjust the correct projection size
         #add the sprite to the array of wall that is raycasted
         proj = SCREEN_DIST / self.norm_dist * self.SPRITE_SCALE
         proj_width, proj_height = proj * self.IMAGE_RATIO, proj
@@ -33,7 +33,6 @@ class SpriteObject:
 
         self.game.raycasting.objects_to_render.append((self.norm_dist, image, pos))
         
-
     def get_sprite(self):
         #to determine the angle of which the player is looking at the sprite
         dx = self.x - self.player.x
@@ -54,7 +53,6 @@ class SpriteObject:
         self.norm_dist = self.dist * math.cos(delta)
         if - self.IMAGE_HALF_WIDTH < self.screen_x < (WIDTH + self.IMAGE_HALF_WIDTH) and self.norm_dist > 0.5:
             self.get_sprite_projection()
-
 
     def update(self):
         self.get_sprite()
@@ -100,7 +98,8 @@ class AnimatedSprite(SpriteObject):
                 img = pg.image.load(path + '/' + file_name).convert_alpha()
                 images.append(img)
         return images
-
+    
+# Animated Sprites
 class GreenLight(AnimatedSprite):
     def __init__(self, game, path = 'src/cis350doom/resources/sprites/animated_sprites/green_light/0.png',
                 pos=(6,9), scale=0.8, shift = 0.15, animation_time = 120):
@@ -111,10 +110,75 @@ class RedLight(AnimatedSprite):
                 pos=(6,9), scale=0.8, shift = 0.15, animation_time = 120):
         super().__init__(game, path, pos, scale, shift, animation_time)
 
+class FireBarrel(AnimatedSprite):
+    def __init__(self, game, path = 'src/cis350doom/resources/sprites/animated_sprites/fire/fire1.png',
+                pos=(6,9), scale=0.8, shift = 0.15, animation_time = 120):
+        super().__init__(game, path, pos, scale, shift, animation_time)
+
+# Static Sprites
 class Candle(SpriteObject):
     def __init__(self, game, path = 'src/cis350doom/resources/sprites/static_sprites/candlebra.png',
                   pos = (10.5, 3.5), scale = 0.7, shift = 0.27):
         super().__init__(game, path, pos, scale, shift)
+
+class StickGuy(SpriteObject):
+    def __init__(self, game, path = 'src/cis350doom/resources/sprites/static_sprites/guyonstick.png',
+                  pos = (10.5, 3.5), scale = 0.7, shift = 0.27):
+        super().__init__(game, path, pos, scale, shift)
+
+class HeadStick(SpriteObject):
+    def __init__(self, game, path = 'src/cis350doom/resources/sprites/static_sprites/headsonstick.png',
+                  pos = (10.5, 3.5), scale = 0.7, shift = 0.27):
+        super().__init__(game, path, pos, scale, shift)
+
+class BrokenTree(SpriteObject):
+    def __init__(self, game, path = 'src/cis350doom/resources/sprites/static_sprites/brokentree.png',
+                  pos = (10.5, 3.5), scale = 0.7, shift = 0.27):
+        super().__init__(game, path, pos, scale, shift)
+
+class BrownSpike(SpriteObject):
+    def __init__(self, game, path = 'src/cis350doom/resources/sprites/static_sprites/brownspike.png',
+                  pos = (10.5, 3.5), scale = 0.7, shift = 0.27):
+        super().__init__(game, path, pos, scale, shift)
+
+class GraySpike(SpriteObject):
+    def __init__(self, game, path = 'src/cis350doom/resources/sprites/static_sprites/graything.png',
+                  pos = (10.5, 3.5), scale = 0.7, shift = 0.27):
+        super().__init__(game, path, pos, scale, shift)
+
+class HeadPile(SpriteObject):
+    def __init__(self, game, path = 'src/cis350doom/resources/sprites/static_sprites/headpile.png',
+                  pos = (10.5, 3.5), scale = 0.7, shift = 0.27):
+        super().__init__(game, path, pos, scale, shift)
+
+class Tree(SpriteObject):
+    def __init__(self, game, path = 'src/cis350doom/resources/sprites/static_sprites/tree.png',
+                  pos = (10.5, 3.5), scale = 1.7, shift = 0.35):
+        super().__init__(game, path, pos, scale, shift)
+
+    def get_sprite_projection(self):
+        proj = SCREEN_DIST / self.norm_dist * self.SPRITE_SCALE
+        proj_width, proj_height = proj * self.IMAGE_RATIO, proj
+        image = pg.transform.scale(self.image, (proj_width, proj_height))
+        self.sprite_half_width = proj_width // 2
+
+        # Calculate the height of the sprite relative to the ground level
+        ground_level = HALF_HEIGHT  # Adjust this value based on your game's ground level
+        sprite_height = ground_level - proj_height * 0.65  # Raise the sprite's position by 30% of its height
+        
+        pos = (
+            self.screen_x - self.sprite_half_width,
+            sprite_height
+        )
+
+        # Always render the sprite
+        self.game.raycasting.objects_to_render.append((self.norm_dist, image, pos))
+
+    def get_sprite(self):
+        return super().get_sprite()
+
+    def update(self):
+        return super().update()
 
 # Pickup items
 class HealthPack(SpriteObject):

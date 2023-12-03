@@ -120,7 +120,7 @@ class Player:
             # Remove the health pack from the sprite list
             if health_pack in self.game.object_handler.sprite_list:
                 self.game.object_handler.sprite_list.remove(health_pack)
-                
+
     def check_weapon_collision(self):
         for item in self.game.object_handler.sprite_list:
             if isinstance(item, ShotgunSprite) and item.is_active:

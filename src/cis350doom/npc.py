@@ -1,6 +1,6 @@
 from sprite_object import*
 from object_handler import*
-from random import randint
+from random import randint, random
 
 class NPC(AnimatedSprite):
     def __init__(self,game,path='src/cis350doom/resources/sprites/npc/soldier/0.png',pos=(10.5,5.5),
@@ -53,7 +53,7 @@ class NPC(AnimatedSprite):
     def attack(self):
         if self.animation_tigger:
             self.game.sound.npc_shot.play()
-    #comment under to make immune
+            #comment under to make immune
             if random() < self.accuracy:
                 self.game.player.get_damge(self.attack_damage)
 
@@ -86,10 +86,8 @@ class NPC(AnimatedSprite):
     
     # Item drops
     def drop_item(self):
-        drop_chance = random.randint(1, 2)
-        if drop_chance == 1:
-            health_pack = HealthPack(game=self.game, pos=(self.x, self.y))
-            self.game.object_handler.add_sprite(health_pack)
+        health_pack = HealthPack(game=self.game, pos=(self.x, self.y))
+        self.game.object_handler.add_sprite(health_pack)
 
     def run_logic(self):
         if self.alive:
@@ -206,14 +204,24 @@ class CacoDemon(NPC):
         self.speed = 0.05
         self.health = 150
         self.attack_damage = 25
-        self.accuracy = 0.35
+        self.accuracy = 0.25
         
 class CyberDemon(NPC):
    def __init__(self,game,path='src/cis350doom/resources/sprites/npc/cyber_demon/0.png',pos=(1,5.5),
              scale=1,shift=0.04, animation_time=210):
         super().__init__(game,path,pos,scale,shift,animation_time)
-        self.attack_dist = 6
+        self.attack_dist = 4
         self.speed = 0.055
         self.health = 200
         self.attack_damage = 15
         self.accuracy = 0.25
+
+class Guy(NPC):
+   def __init__(self,game,path='src/cis350doom/resources/sprites/npc/guy/0.png',pos=(1,5.5),
+             scale=0.6,shift=0.38, animation_time=270):
+        super().__init__(game,path,pos,scale,shift,animation_time)
+        self.attack_dist = 4
+        self.speed = 0.04
+        self.health = 500
+        self.attack_damage = 20
+        self.accuracy = 0.35
