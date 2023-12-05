@@ -39,6 +39,13 @@ class Player:
             pg.display.flip()
             pg.time.delay(1500)
             self.game.new_game()
+    
+    def check_for_win(self):
+        if self.game.object_handler.score():
+            self.game.object_renderer.win_game()
+            pg.display.flip()
+            pg.time.delay(1500)
+            self.game.new_game()
 
     def get_damge(self, damage):
         self.health -= damage
@@ -202,6 +209,7 @@ class Player:
         self.recover_health()
         self.check_health_pack_collision()
         self.check_weapon_collision()
+        self.check_for_win()
         if self.weapon_pickup_cooldown:
             current_time = pg.time.get_ticks()
             if current_time - self.weapon_pickup_cooldown_timer >= self.weapon_pickup_cooldown_duration:

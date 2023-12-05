@@ -16,6 +16,7 @@ class ObjectRenderer:
         self.digits = dict(zip(map(str, range(11)), self.digit_images))
 
         self.game_over_image = self.get_texture('src/cis350doom/resources/textures/game_over.png', RES)
+        self.game_win_image = self.get_texture('src/cis350doom/resources/textures/winscreen.png', RES)
     
     def draw(self):
         self.draw_background()
@@ -31,6 +32,9 @@ class ObjectRenderer:
 
     def game_over(self):
         self.screen.blit(self.game_over_image,(0,0))
+    
+    def win_game(self):
+        self.screen.blit(self.game_win_image,(0,0))
 
     def draw_player_health(self):
         health = str(self.game.player.health)

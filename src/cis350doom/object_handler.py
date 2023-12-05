@@ -1,6 +1,7 @@
 from sprite_object import *
 from npc import *
 import random
+from pathfinding import *
 
 class ObjectHandler:
     def __init__(self,game):
@@ -100,25 +101,30 @@ class ObjectHandler:
                     else:
                         add_sprite(HeadPile(game, pos=pos))
             y += interval1
-
         
-
         # Npc map
         # add_npc(Soldier(game, pos=(16.5,28.5)))
-        add_npc(Guy(game, pos=(3, 26)))
+        # add_npc(Guy(game, pos=(3, 26)))
         # add_npc(Soldier(game, pos=(11.5,4.5)))
+        # add_npc(Soldier(game, pos=(11.5,4.5)))
+        add_npc(Soldier(game, pos=(31,8.2)))
+        add_npc(Soldier(game, pos=(31,9.5)))
+        add_npc(CacoDemon(game, pos=(31,6.5)))
+        add_npc(CacoDemon(game, pos=(30.3,8.5)))
+        add_npc(Soldier(game, pos=(30.3,8.5)))
         
         # Gun Sprites
         add_sprite(DoubleShotgunSprite(game,pos=(3,3.3)))
         add_sprite(ShotgunSprite(game,pos=(3,6.3)))
         add_sprite(PistolSprite(game,pos=(3,9.3)))
         add_sprite(AutoShotgunSprite(game,pos=(3,7.3)))
-
+    
     def update(self):
         self.npc_positions = {npc.map_pos for npc in self.npc_list if npc.alive}
         [sprite.update() for sprite in self.sprite_list]
         [npc.update() for npc in self.npc_list]
         self.remove_picked_health_packs()
+        self.score()
     
     def remove_picked_health_packs(self):
         health_packs = [sprite for sprite in self.sprite_list if isinstance(sprite, HealthPack) and not sprite.is_active]
@@ -131,6 +137,20 @@ class ObjectHandler:
 
     def add_npc(self,npc):
         self.npc_list.append(npc)
+        
+    def score(self):
+        enemies_killed = 0
+        for enemy in self.npc_list:
+            print(len(self.npc_list))
+            if not enemy.alive:
+                print("enemy killed")
+                enemies_killed += 1
+                print(enemies_killed)
+            if enemies_killed == len(self.npc_list):
+                print("everyone dead")
+                pg.time.delay(100)
+                return True
+        return False
     
     def get_health_packs(self):
         return [sprite for sprite in self.sprite_list if isinstance(sprite, HealthPack)]
