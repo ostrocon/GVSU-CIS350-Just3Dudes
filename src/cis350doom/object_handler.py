@@ -103,15 +103,10 @@ class ObjectHandler:
             y += interval1
         
         # Npc map
-        # add_npc(Soldier(game, pos=(16.5,28.5)))
+        add_npc(Soldier(game, pos=(12,10)))
         # add_npc(Guy(game, pos=(3, 26)))
         # add_npc(Soldier(game, pos=(11.5,4.5)))
         # add_npc(Soldier(game, pos=(11.5,4.5)))
-        add_npc(Soldier(game, pos=(31,8.2)))
-        add_npc(Soldier(game, pos=(31,9.5)))
-        add_npc(CacoDemon(game, pos=(31,6.5)))
-        add_npc(CacoDemon(game, pos=(30.3,8.5)))
-        add_npc(Soldier(game, pos=(30.3,8.5)))
         
         # Gun Sprites
         add_sprite(DoubleShotgunSprite(game,pos=(3,3.3)))
