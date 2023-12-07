@@ -8,32 +8,32 @@
 
 ## Functional Requirements
 
-### npc pathfinding
+### Player Movement
 | ID | Requirement |
 | :-------------: | :----------: |
-| FR1 | the npc will be spawned at a given coordinate. |
-| FR2 | the movement of the npc depends on the location of the player. |
-| FR3 | npc's will follow a player once they have started to fight. |
-| FR4 | an npc can not travel through walls or teleport around. |
-| FR5 | the npc will stop when engaged in the fight with the user. |
+| FR1 | The player shall move forward when the user presses the  w key. |
+| FR2 | The player shall move left when the user presses the a key. |
+| FR3 | The player shall move right when the user presses the d key. |
+| FR4 | The player shall move backwards when the user presses the s key. |
+| FR5 | The player shall look left and right when the user moves their cursor left and right respectively. |
 
-### interactice items
+### Interface
 | ID | Requirement |
 | :-------------: | :----------: |
-| FR6 | weapons can be picked up by the player |
-| FR7 | each weapon has its own animation |
-| FR8 | player can only carry one weapon at a time |
-| FR9 | health packs are dropped after an npc is dead |
-| FR10 | health packs heal a certian amount  |
+| FR6 | The game shall show players current health at the top left of the game screen. |
+| FR7 | The game shall have a starting menu that starts when the up arrow key is clicked. |
+| FR8 | The game shall show a You Win screen when all the enemies are defeated. |
+| FR9 | The game shall show a Game Over Screen when the player is defeated. |
+| FR10 | The game shall show a score on the you win screen that is equal to the number of enemies defeated. |
 
-### raycasting
+### Terrain
 | ID | Requirement |
 | :-------------: | :----------: |
-| FR11 | <Requirement 1> |
-| FR12 | <Requirement 2> |
-| FR13 | <Requirement 3> |
-| FR14 | <Requirement 4> |
-| FR15 | <Requirement 5> |
+| FR11 | The player shall not be able to shoot through walls. |
+| FR12 | The player shall be able to walk through sprites like lamps but not walls. |
+| FR13 | The enemies shall not be able to shoot through walls. |
+| FR14 | When the player walks over a health pack it shall disappear and be used. |
+| FR15 | When the player walks over a weapon they shall pick it up. |
 
 ## Non-Functional Requirements
 
@@ -46,11 +46,11 @@
 | NFR4 | the game shall exit after the escape key it pressed |
 | NFR5 | the game shall allow for the player to use a keypad or mouse to aim |
 
-### 
+### Performence
 | ID | Requirement |
 | :-------------: | :----------: |
-| NFR6 | <Non-Functional Requirement 1> |
-| NFR7 | <Non-Functional Requirement 2> |
+| NFR6 | The game resolution shall be 1600x900 |
+| NFR7 | The game shall run at a minimum of 50 frames per second. |
 | NFR8 | <Non-Functional Requirement 3> |
 | NFR9 | <Non-Functional Requirement 4> |
 | NFR10 | <Non-Functional Requirement 5> |
