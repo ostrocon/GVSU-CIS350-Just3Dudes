@@ -15,7 +15,7 @@ class ObjectRenderer:
                              for i in range(11)]
         self.digits = dict(zip(map(str, range(11)), self.digit_images))
 
-        self.game_over_image = self.get_texture('src/cis350doom/resources/textures/game_over.png', RES)
+        self.game_over_image = self.get_texture('src/cis350doom/resources/textures/death_screen.png', RES)
         self.game_win_image = self.get_texture('src/cis350doom/resources/textures/winscreen.png', RES)
     
     def draw(self):
@@ -41,7 +41,7 @@ class ObjectRenderer:
 
             # Calculate the position to center the text horizontally and shift it downward
             text_width, text_height = text_surface.get_size()
-            text_x = (WIDTH - text_width) // 2 + 50
+            text_x = (WIDTH - text_width) // 2
             text_y = (HEIGHT - text_height) // 2 + 200  # Shifted downward by 50 pixels
 
             # Blit the "SCORE: " text onto the screen
@@ -66,11 +66,6 @@ class ObjectRenderer:
 
         # Blit the "SCORE: " text onto the screen
         self.screen.blit(text_surface, (text_x, text_y))
-
-        font = pg.font.Font(None, 36)
-        text = font.render("Score: 5", True, (255, 255, 255))
-        text_rect = text.get_rect(center=(WIDTH // 2, HEIGHT // 2 + 100))
-        self.screen.blit(text, text_rect)
 
     def draw_player_health(self):
         health = str(self.game.player.health)
