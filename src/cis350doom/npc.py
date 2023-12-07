@@ -18,6 +18,7 @@ class NPC(AnimatedSprite):
         self.health = 100
         self.attack_damage = 10
         self.accuracy = 0.15
+        self.points = 0
         self.alive = True
         self.pain = False
         self.ray_cast_value = False
@@ -195,6 +196,7 @@ class Soldier(NPC):
     def __init__(self,game,path='src/cis350doom/resources/sprites/npc/soldier/0.png',pos=(9.5,5.5),
               scale=0.6,shift=0.38, animation_time=180):
        super().__init__(game,path,pos,scale,shift,animation_time)
+       self.points = 10
         
 class CacoDemon(NPC):
     def __init__(self,game,path='src/cis350doom/resources/sprites/npc/caco_demon/0.png',pos=(10.5,5.5),
@@ -205,6 +207,7 @@ class CacoDemon(NPC):
         self.health = 150
         self.attack_damage = 25
         self.accuracy = 0.25
+        self.points = 15
         
 class CyberDemon(NPC):
    def __init__(self,game,path='src/cis350doom/resources/sprites/npc/cyber_demon/0.png',pos=(1,5.5),
@@ -215,6 +218,7 @@ class CyberDemon(NPC):
         self.health = 200
         self.attack_damage = 15
         self.accuracy = 0.25
+        self.points = 40
 
 class Guy(NPC):
    def __init__(self,game,path='src/cis350doom/resources/sprites/npc/guy/0.png',pos=(1,5.5),
@@ -225,3 +229,4 @@ class Guy(NPC):
         self.health = 500
         self.attack_damage = 20
         self.accuracy = 0.35
+        self.points = 80

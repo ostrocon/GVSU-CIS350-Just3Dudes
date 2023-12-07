@@ -30,11 +30,42 @@ class ObjectRenderer:
         #floor
         pg.draw.rect(self.screen, FLOOR_COLOR, (0, HALF_HEIGHT, WIDTH, HEIGHT))
 
-    def game_over(self):
+    def game_over(self, score, won):
         self.screen.blit(self.game_over_image,(0,0))
-    
-    def win_game(self):
+        if not won:
+            score_text = "SCORE: " + str(score)
+            font = pg.font.Font(None, 55)  # You can adjust the font size here
+
+            # Create a surface with the "SCORE: " text
+            text_surface = font.render(score_text, True, (255, 215, 0))  # Color can be adjusted as needed
+
+            # Calculate the position to center the text horizontally and shift it downward
+            text_width, text_height = text_surface.get_size()
+            text_x = (WIDTH - text_width) // 2 + 50
+            text_y = (HEIGHT - text_height) // 2 + 200  # Shifted downward by 50 pixels
+
+            # Blit the "SCORE: " text onto the screen
+            self.screen.blit(text_surface, (text_x, text_y))
+            
+    def win_game(self, score, won):
         self.screen.blit(self.game_win_image,(0,0))
+        if won:
+            self.draw_player_score(score)
+        
+    def draw_player_score(self, score):
+        score_text = "SCORE: " + str(score)
+        font = pg.font.Font(None, 55)  # You can adjust the font size here
+
+        # Create a surface with the "SCORE: " text
+        text_surface = font.render(score_text, True, (255, 215, 0))  # Color can be adjusted as needed
+
+        # Calculate the position to center the text horizontally and shift it downward
+        text_width, text_height = text_surface.get_size()
+        text_x = (WIDTH - text_width) // 2
+        text_y = (HEIGHT - text_height) // 2 + 150  # Shifted downward by 50 pixels
+
+        # Blit the "SCORE: " text onto the screen
+        self.screen.blit(text_surface, (text_x, text_y))
 
     def draw_player_health(self):
         health = str(self.game.player.health)

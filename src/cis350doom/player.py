@@ -34,15 +34,17 @@ class Player:
     #Comment out above here to line 14 to stop health regen
 
     def check_game_over(self):
-        if self.health < 1:
-            self.game.object_renderer.game_over()
+        won, score = self.game.object_handler.score()
+        if self.health < 1 and not won:
+            self.game.object_renderer.game_over(score, won)
             pg.display.flip()
             pg.time.delay(1500)
             self.game.new_game()
     
     def check_for_win(self):
-        if self.game.object_handler.score():
-            self.game.object_renderer.win_game()
+        won, score = self.game.object_handler.score()
+        if won:
+            self.game.object_renderer.win_game(score, won)
             pg.display.flip()
             pg.time.delay(1500)
             self.game.new_game()

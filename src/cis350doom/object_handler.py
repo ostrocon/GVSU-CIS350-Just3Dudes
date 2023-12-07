@@ -84,11 +84,11 @@ class ObjectHandler:
                         add_sprite(BrokenTree(game, pos=pos))
             y += interval
 
+        # Places StickGuys, HeadSticks, and HeadPiles
         columns1 = range(1, 8)
         rows1 = range(19,33)
         interval1 = 1.0
 
-        # Places StickGuys, HeadSticks, and HeadPiles
         for x in columns1:
             for y in rows1:
                 if random.random() < 0.2:
@@ -105,13 +105,13 @@ class ObjectHandler:
         # Npc map
         # add_npc(Soldier(game, pos=(16.5,28.5)))
         # add_npc(Guy(game, pos=(3, 26)))
-        # add_npc(Soldier(game, pos=(11.5,4.5)))
-        # add_npc(Soldier(game, pos=(11.5,4.5)))
-        add_npc(Soldier(game, pos=(31,8.2)))
-        add_npc(Soldier(game, pos=(31,9.5)))
-        add_npc(CacoDemon(game, pos=(31,6.5)))
-        add_npc(CacoDemon(game, pos=(30.3,8.5)))
-        add_npc(Soldier(game, pos=(30.3,8.5)))
+        add_npc(Soldier(game, pos=(11.5,4.5)))
+        add_npc(CyberDemon(game, pos=(11.5,4.5)))
+        # add_npc(Soldier(game, pos=(31,8.2)))
+        # add_npc(Soldier(game, pos=(31,9.5)))
+        # add_npc(CacoDemon(game, pos=(31,6.5)))
+        # add_npc(CacoDemon(game, pos=(30.3,8.5)))
+        # add_npc(Soldier(game, pos=(30.3,8.5)))
         
         # Gun Sprites
         add_sprite(DoubleShotgunSprite(game,pos=(3,3.3)))
@@ -137,20 +137,28 @@ class ObjectHandler:
 
     def add_npc(self,npc):
         self.npc_list.append(npc)
-        
+    
     def score(self):
+        points = 0
         enemies_killed = 0
         for enemy in self.npc_list:
-            print(len(self.npc_list))
-            if not enemy.alive:
-                print("enemy killed")
+            if isinstance(enemy, Soldier) and not enemy.alive:
+                points += 10
                 enemies_killed += 1
-                print(enemies_killed)
+            elif isinstance(enemy, CacoDemon) and not enemy.alive:
+                points += 15
+                enemies_killed += 1
+            elif isinstance(enemy, CyberDemon) and not enemy.alive:
+                points += 40
+                enemies_killed += 1
+            elif isinstance(enemy, Guy) and not enemy.alive:
+                points += 80
+                enemies_killed += 1
             if enemies_killed == len(self.npc_list):
-                print("everyone dead")
                 pg.time.delay(100)
-                return True
-        return False
+                print(points)
+                return True, points
+        return False, points
     
     def get_health_packs(self):
         return [sprite for sprite in self.sprite_list if isinstance(sprite, HealthPack)]
