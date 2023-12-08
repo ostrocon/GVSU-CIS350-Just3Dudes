@@ -1,10 +1,10 @@
 # Overview
 
-This document contains lists of requirements which are specifications of what we want to be implemented in our game. Our requirements describe how the system should behave and what attributes it will have. Here we have listed function requirements which are behavioral requirements that the user can preform while playing the game. The non-functional requirements describe qualities that the system should have and contraints that are implemented
+This document contains lists of requirements which are specifications of what we want to be implemented in our game. Our requirements describe how the system should behave and what attributes it will have. Here we have listed function requirements which are behavioral requirements that the user can perform while playing the game. The non-functional requirements describe qualities that the system should have and constraints that are implemented.
 
 # Software Requirements
 
-The functional requirements are first and they all have a unique id with FR1, FR2, etc. Then the Non-functional requirements are also labled uniquely with NFR1, NFR2, etc. Both sections have a feature that is followed by five requirements.  
+The functional requirements are first and they all have a unique id with FR1, FR2, etc. Then the Non-functional requirements are also labeled uniquely with NFR1, NFR2, etc. Both sections have a feature that is followed by five requirements.  
 
 ## Functional Requirements
 
@@ -44,7 +44,7 @@ The functional requirements are first and they all have a unique id with FR1, FR
 | NFR2 | The pickup sprites like guns and medkit shall have specific ground level, height, and render distance variables to keep fps stable. |
 | NFR3 | The random sprite placement shall not spawn out of bounds. |
 | NFR4 | The random sprites placement shall not fill entire row and column range. |
-| NFR5 | The spirtes shall be oriented towards the player to prevent having to render 3d objects. |
+| NFR5 | The sprites shall be oriented towards the player to prevent having to render 3d objects. |
 
 ### Performance
 | ID | Requirement |
@@ -59,14 +59,14 @@ The functional requirements are first and they all have a unique id with FR1, FR
 | ID | Requirement |
 | :-------------: | :----------: |
 | NFR11 | The 'guy' NPC type shall have 500 health when spawned. |
-| NFR12 | The 'guy' NPC type shall be the slowest with a speed of 0.05 |
-| NFR13 | The 'CyberDemon' NPC type shall have a speed of 0.055 to be the fastest|
-| NFR14 | The 'Soldier' NPC type shall have the least health with a starting value of 100 |
-| NFR15 | The 'CacoDemon' NPC type shall have an attack distance of 1.0 |
+| NFR12 | The 'guy' NPC type shall be the slowest with a speed of 0.05. |
+| NFR13 | The 'CyberDemon' NPC type shall have a speed of 0.055 to be the fastest. |
+| NFR14 | The 'Soldier' NPC type shall have the least health with a starting value of 100. |
+| NFR15 | The 'CacoDemon' NPC type shall have an attack distance of 1.0. |
 
 # Software Artifacts
 
-This section contains artifacts that our team has compilied throughout the semester. This will include things like use case diagrams, project plans and links to other material we used for this project.
+This section contains artifacts that our team has compiled throughout the semester. This will include things like use case diagrams, project plans and links to other material we used for this project.
 
 * [Use Case 1](https://github.com/ostrocon/GVSU-CIS350-Just3Dudes/blob/master/artifacts/use_case_diagrams/UseCase1.jpg)
 * [Use Case 2](https://github.com/ostrocon/GVSU-CIS350-Just3Dudes/blob/master/artifacts/use_case_diagrams/UseCase2.jpg)
