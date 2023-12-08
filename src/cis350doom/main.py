@@ -23,8 +23,8 @@ class Game:
         self.global_event = pg.USEREVENT + 0
         pg.time.set_timer(self.global_event, 40)
         self.new_game()
-        # bg_music = pg.mixer.Sound('src/cis350doom/resources/sound/theme.mp3')
-        # bg_music.play(loops=-1)
+        bg_music = pg.mixer.Sound('src/cis350doom/resources/sound/theme.mp3')
+        bg_music.play(loops=-1)
         
     def new_game(self):
         self.map = Map(self)

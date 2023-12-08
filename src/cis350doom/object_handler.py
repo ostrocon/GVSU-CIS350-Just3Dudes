@@ -98,14 +98,33 @@ class ObjectHandler:
         
         # Npc map
         # add_npc(Soldier(game, pos=(12,10)))
-        # add_npc(Guy(game, pos=(3, 26)))
-        add_npc(Guy(game, pos=(11.5,4.5)))
-        # add_npc(Soldier(game, pos=(11.5,4.5)))
-        # add_npc(Soldier(game, pos=(31,8.2)))
-        # add_npc(Soldier(game, pos=(31,9.5)))
-        # add_npc(CacoDemon(game, pos=(31,6.5)))
-        # add_npc(CacoDemon(game, pos=(30.3,8.5)))
-        # add_npc(Soldier(game, pos=(30.3,8.5)))
+        add_npc(Guy(game, pos=(3, 26)))
+        # add_npc(Guy(game, pos=(11.5,4.5)))
+        add_npc(Soldier(game, pos=(11.5,4.5)))
+        add_npc(CacoDemon(game,pos=(11,3.5)))
+        
+        add_npc(CacoDemon(game,pos=(12,12)))
+        add_npc(CyberDemon(game,pos=(13,12)))
+        add_npc(Soldier(game,pos=(14,12)))
+        add_npc(CacoDemon(game,pos=(15,12)))
+
+
+        add_npc(CacoDemon(game,pos=(11,28)))
+        add_npc(CacoDemon(game,pos=(12,28)))
+        add_npc(CacoDemon(game,pos=(13,28)))
+        add_npc(CacoDemon(game,pos=(14,28)))
+        add_npc(CyberDemon(game,pos=(15,28)))
+        add_npc(CyberDemon(game,pos=(16,28)))
+        add_npc(CacoDemon(game,pos=(17,28)))
+        add_npc(CacoDemon(game,pos=(18,28)))
+        add_npc(CacoDemon(game,pos=(19,28)))
+        add_npc(CacoDemon(game,pos=(20,28)))
+        
+        add_npc(Soldier(game, pos=(31,8.2)))
+        add_npc(Soldier(game, pos=(31,9.5)))
+        add_npc(CacoDemon(game, pos=(31,6.5)))
+        add_npc(CacoDemon(game, pos=(30.3,8.5)))
+        add_npc(Soldier(game, pos=(30.3,8.5)))
         
         # Gun Sprites
         add_sprite(DoubleShotgunSprite(game,pos=(3,3.3)))
