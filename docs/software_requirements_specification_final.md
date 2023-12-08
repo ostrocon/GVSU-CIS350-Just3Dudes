@@ -1,10 +1,10 @@
 # Overview
 
-<Describe the purpose of this document in 1 paragraph of less ... hint: it isyour SRS>
+This document contains lists of requirements which are specifications of what we want to be implemented in our game. Our requirements describe how the system should behave and what attributes it will have. Here we have listed function requirements which are behavioral requirements that the user can preform while playing the game. The non-functional requirements describe qualities that the system should have and contraints that are implemented
 
 # Software Requirements
 
-<Describe the structure of this section>
+The functional requirements are first and they all have a unique id with FR1, FR2, etc. Then the Non-functional requirements are also labled uniquely with NFR1, NFR2, etc. Both sections have a feature that is followed by five requirements.  
 
 ## Functional Requirements
 
@@ -37,28 +37,28 @@
 
 ## Non-Functional Requirements
 
-### game controls
+### Sprites
 | ID | Requirement |
 | :-------------: | :----------: |
-| NFR1 | the game shall have a simple control system |
-| NFR2 | the game shall have responsive inputs |
-| NFR3 | the game shall start after the intro menu when a key is pressed|
-| NFR4 | the game shall exit after the escape key it pressed |
-| NFR5 | the game shall allow for the player to use a keypad or mouse to aim |
+| NFR1 | The sprite scale shall be below 3 to maintain stable frames. |
+| NFR2 | The pickup sprites like guns and medkit shall have specific ground level, height, and render distance variables to keep fps stable. |
+| NFR3 | The random sprite placement shall not spawn out of bounds. |
+| NFR4 | The random sprites placement shall not fill entire row and column range. |
+| NFR5 | The spirtes shall be oriented towards the player to prevent having to render 3d objects. |
 
-### Performence
+### Performance
 | ID | Requirement |
 | :-------------: | :----------: |
-| NFR6 | The game resolution shall be 1600x900 |
+| NFR6 | The game resolution shall be 1600x900. |
 | NFR7 | The game shall run at a minimum of 50 frames per second. |
-| NFR8 | The players health shall be changed when fighting an NPC. |
-| NFR9 | The players health shall increase after picking up a med kit.|
+| NFR8 | The game shall keep stable fps when the player faces right against the wall. |
+| NFR9 | The depth of the game shall be 40 to maintain stable frames.|
 | NFR10 | The intro slide shall not drop below 50 frames per second while generating the flame visuals. |
 
-### NPC attributes
+### NPC Attributes
 | ID | Requirement |
 | :-------------: | :----------: |
-| NFR11 | The 'guy' NPC type shall 500 health when spawned |
+| NFR11 | The 'guy' NPC type shall have 500 health when spawned. |
 | NFR12 | The 'guy' NPC type shall be the slowest with a speed of 0.05 |
 | NFR13 | The 'CyberDemon' NPC type shall have a speed of 0.055 to be the fastest|
 | NFR14 | The 'Soldier' NPC type shall have the least health with a starting value of 100 |
