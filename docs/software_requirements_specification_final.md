@@ -51,22 +51,24 @@
 | :-------------: | :----------: |
 | NFR6 | The game resolution shall be 1600x900 |
 | NFR7 | The game shall run at a minimum of 50 frames per second. |
-| NFR8 | <Non-Functional Requirement 3> |
-| NFR9 | <Non-Functional Requirement 4> |
-| NFR10 | <Non-Functional Requirement 5> |
+| NFR8 | The players health shall be changed when fighting an NPC. |
+| NFR9 | The players health shall increase after picking up a med kit.|
+| NFR10 | The intro slide shall not drop below 50 frames per second while generating the flame visuals. |
 
-### <Name of Feature 3>
+### NPC attributes
 | ID | Requirement |
 | :-------------: | :----------: |
-| NFR11 | <Non-Functional Requirement 1> |
-| NFR12 | <Non-Functional Requirement 2> |
-| NFR13 | <Non-Functional Requirement 3> |
-| NFR14 | <Non-Functional Requirement 4> |
-| NFR15 | <Non-Functional Requirement 5> |
+| NFR11 | The 'guy' NPC type shall 500 health when spawned |
+| NFR12 | The 'guy' NPC type shall be the slowest with a speed of 0.05 |
+| NFR13 | The 'CyberDemon' NPC type shall have a speed of 0.055 to be the fastest|
+| NFR14 | The 'Soldier' NPC type shall have the least health with a starting value of 100 |
+| NFR15 | The 'CacoDemon' NPC type shall have an attack distance of 1.0 |
 
 # Software Artifacts
 
-<Describe the purpose of this section>
+This section contains artifacts that our team has compilied throughout the semester. This will include things like use case diagrams, project plans and links to other material we used for this project.
 
-* [I am a link](to_some_file.pdf)
+* [Use Case 1](UseCase1.jpg)
+* [Use Case 2](useCase2.jpg)
+* [Use Case 3](UseCase3.jpg)
 
