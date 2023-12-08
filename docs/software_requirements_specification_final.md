@@ -68,7 +68,8 @@ The functional requirements are first and they all have a unique id with FR1, FR
 
 This section contains artifacts that our team has compilied throughout the semester. This will include things like use case diagrams, project plans and links to other material we used for this project.
 
-* [Use Case 1](UseCase1.jpg)
-* [Use Case 2](useCase2.jpg)
-* [Use Case 3](UseCase3.jpg)
+* [Use Case 1](https://github.com/ostrocon/GVSU-CIS350-Just3Dudes/blob/master/artifacts/use_case_diagrams/UseCase1.jpg)
+* [Use Case 2](https://github.com/ostrocon/GVSU-CIS350-Just3Dudes/blob/master/artifacts/use_case_diagrams/UseCase2.jpg)
+* [Use Case 3](https://github.com/ostrocon/GVSU-CIS350-Just3Dudes/blob/master/artifacts/use_case_diagrams/UseCase3.jpg)
+* [Proposal](https://github.com/ostrocon/GVSU-CIS350-Just3Dudes/blob/master/docs/proposal-template.md)
 
